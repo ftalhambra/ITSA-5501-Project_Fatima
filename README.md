@@ -1,61 +1,116 @@
-# ITSA 5501 – DevOps and System Integration Project (Milestone 1)
+📘 ITSA‑5501 – DevOps and System Integration
+Project
 
-## Project Overview
-This repository demonstrates foundational DevOps and system integration practices using Git and GitHub. The project focuses on organizing infrastructure-related files, implementing version control, using branching strategies, resolving merge conflicts, simulating pull requests, and tagging milestone completion to reflect a real-world collaborative workflow.
+## 🧩 Milestone 1 – Git Workflow & Version Control
+Overview
+Milestone 1 focused on establishing a proper Git workflow using branching, merging, conflict resolution, pull requests, tagging, and repository documentation. This phase established the foundation of version control best practices for the project.
 
----
+🔧 Completed Tasks (Milestone 1)
+1. Repository Initialization
 
-## Repository Structure
-ITSA-5501-Project/
-├── docker/        # Dockerfiles and container-related configuration
-│   └── Dockerfile
-├── k8s/           # Kubernetes YAML manifests
-│   └── deployment.yaml
-├── iac/           # Infrastructure as Code scripts
+- A new Git repository was created for the project.
+- Initial commits included project setup and base folder structure.
+- Commit messages followed clear, descriptive wording to reflect changes accurately.
+
+2. Branching Strategy
+
+- A new branch named experiment was created.
+- Several commits were added to simulate isolated feature development.
+- Demonstrated switching branches and maintaining clean version history.
+
+3. Merge & Conflict Resolution
+
+- The experiment branch was merged into main.
+- Conflicts were intentionally created and successfully resolved.
+- Screenshots documented:
+    Conflict appearance
+    Manual file editing
+    git add and git commit steps
+    Clean merge
+
+
+
+4. Pull Request Simulation
+
+A PR was created on GitHub to simulate collaborative workflow.
+Since changes were merged locally already, GitHub showed no diff — confirming proper merge.
+
+5. Tagging & Release Marking
+
+A tag was added to mark Milestone 1 completion.
+
+
+## 🚀 Milestone 2 – Multi‑Container Deployment with Docker Compose
+Milestone 2 focuses on multi‑container application deployment using Docker, Docker Compose, service networking, Prometheus configuration, and container scaling.
+
+📂 Updated Project Structure (After Milestone 2)
+ITSA-5501_Project_Fatima/
+│
+├── docker/
+│   └── docker-compose.yml
+│
+├── frontend/
+│   └── index.html
+│
+├── prometheus.yml
+│
+├── iac/
 │   └── main.tf
-├── .gitignore     # Files and folders excluded from version control
-└── README.md      # Project documentation
----
+│
+├── k8s/
+│   └── deployment.yaml
+│
+├── .gitignore
+└── README.md
 
-## Git Workflow
 
-### Branching Strategy
-- **main**: Primary branch containing stable and production-ready code
-- **experiment**: Feature branch used for testing and experimental changes
+## 🌐 Milestone 2 Details
 
-### Workflow Steps
-1. Initialize a local Git repository and connect it to GitHub
-2. Create an `experiment` branch for isolated development
-3. Commit changes frequently with descriptive messages
-4. Make parallel changes on both `main` and `experiment` branches
-5. Merge the `experiment` branch into `main`
-6. Resolve merge conflicts manually when they occur
-7. Simulate a Pull Request using GitHub
-8. Tag milestone completion using semantic versioning (`v1.0`)
+1. Frontend Setup
+A frontend folder was created with an index.html page describing a vacation destination, satisfying the requirement to create a static webpage served through Nginx.
 
-### Merge Conflict Resolution
-A merge conflict occurred in the `README.md` file when both branches introduced changes. The conflict was resolved manually by keeping relevant content from both branches, demonstrating proper conflict resolution practices.
+2. Docker Compose – Multi‑Container Configuration
+A complete docker-compose.yml was created under the /docker folder containing the following services:
+🟦 Services Included
+    frontend – NGINX serving HTML
+    user-db – MongoDB with persistent user_data volume
+    product-db – PostgreSQL with persistent product_data volume
+    cache – Redis
+    prometheus – Monitoring service exposed on port 9091
 
----
+🟦 Networking
+All services share a custom internal network: app-network
 
-## Tools Used
-- **Git** – Version control and branch management
-- **GitHub** – Remote repository hosting, pull requests, and tagging
-- **Visual Studio Code** – Integrated development environment
-- **Docker** – Containerization (placeholder implementation)
-- **Kubernetes** – Container orchestration (placeholder configuration)
-- **Infrastructure as Code (IaC)** – Automation foundation (placeholder using tools such as Terraform)
 
----
+3. Prometheus Configuration
+A prometheus.yml file was added at the project root, containing:
+    scrape_interval: 15s
+    Prometheus job targeting: localhost:9090
 
-## Contribution Guidelines
-1. Create a new branch for each feature or enhancement
-2. Commit changes with clear and meaningful messages
-3. Push branches to GitHub
-4. Create a Pull Request for review
-5. Resolve conflicts before merging into `main`
+4. Running Containers
+The entire stack was started using:
+    docker-compose up -d
 
----
+All containers were verified using:
+    docker ps
 
-## Milestone Tag
-Milestone 1 completion is marked with the following Git tag: v1.0 – Milestone 1 complete
+5. Verifying Services
+✔ Frontend
+    http://localhost:9090
+✔ Prometheus Dashboard
+    http://localhost:9091
+
+
+6. Scaling the Frontend Service
+As required by the milestone, the frontend was scaled to three instances:
+    docker-compose up --scale frontend=3 -d
+
+Verification via:
+    docker ps
+
+The output correctly showed:
+    frontend‑1
+    frontend‑2
+    frontend‑3
+
+This fulfills the container scaling requirement. 
