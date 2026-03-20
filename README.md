@@ -22,22 +22,13 @@ Milestone 1 focused on establishing a proper Git workflow using branching, mergi
 
 - The experiment branch was merged into main.
 - Conflicts were intentionally created and successfully resolved.
-- Screenshots documented:
-    Conflict appearance
-    Manual file editing
-    git add and git commit steps
-    Clean merge
-
-
 
 4. Pull Request Simulation
-
-A PR was created on GitHub to simulate collaborative workflow.
-Since changes were merged locally already, GitHub showed no diff — confirming proper merge.
+- A PR was created on GitHub to simulate collaborative workflow.
+Since changes were merged locally already, GitHub showed no diff, confirming proper merge.
 
 5. Tagging & Release Marking
-
-A tag was added to mark Milestone 1 completion.
+- A tag was added to mark Milestone 1 completion.
 
 
 ## 🚀 Milestone 2 – Multi‑Container Deployment with Docker Compose
@@ -84,33 +75,25 @@ All services share a custom internal network: app-network
 
 3. Prometheus Configuration
 A prometheus.yml file was added at the project root, containing:
-    scrape_interval: 15s
-    Prometheus job targeting: localhost:9090
+- scrape_interval: 15s
+- Prometheus job targeting: localhost:9090
 
 4. Running Containers
-The entire stack was started using:
-    docker-compose up -d
-
-All containers were verified using:
-    docker ps
+The entire stack was started using: docker-compose up -d
+All containers were verified using: docker ps
 
 5. Verifying Services
-✔ Frontend
-    http://localhost:9090
-✔ Prometheus Dashboard
-    http://localhost:9091
-
+- Frontend: http://localhost:9090
+- Prometheus Dashboard: http://localhost:9091
 
 6. Scaling the Frontend Service
-As required by the milestone, the frontend was scaled to three instances:
-    docker-compose up --scale frontend=3 -d
+- As required by the milestone, the frontend was scaled to three instances: docker-compose up --scale frontend=3 -d
 
-Verification via:
-    docker ps
+Verification via:docker ps
 
 The output correctly showed:
-    frontend‑1
-    frontend‑2
-    frontend‑3
+- frontend‑1
+- frontend‑2
+- frontend‑3
 
 This fulfills the container scaling requirement. 
