@@ -97,3 +97,14 @@ The output correctly showed:
 - frontend‑3
 
 This fulfills the container scaling requirement. 
+
+## Milestone 3 – Kubernetes
+- Created a PersistentVolumeClaim (PVC)
+- Deployed a multi-container pod with a sidecar pattern
+- Exposed the application using a NodePort service
+- Scaled deployment and performed rolling image updates
+
+## Milestone 3 – Infrastructure as Code
+- Used Terraform to provision an Azure Linux VM
+- Defined variables and outputs
+- Initialized, validated, and applied Terraform configuration

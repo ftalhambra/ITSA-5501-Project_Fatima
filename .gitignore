@@ -1,5 +1,23 @@
+# OS files
+.DS_Store
+
+# Logs
 *.log
 *.tmp
-.DS_Store
+
+# Environment variables
 .env
+
+# Node.js
 node_modules/
+
+# Terraform - VERY IMPORTANT
+.terraform/
+*.tfstate
+*.tfstate.*
+.terraform.lock.hcl
+
+# SSH keys (DO NOT COMMIT)
+id_rsa
+id_rsa.pub
+*.pem
